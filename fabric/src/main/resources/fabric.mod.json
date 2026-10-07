@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "gokis",
+  "version": "${version}",
+  "name": "Gokis",
+  "description": "A Minecraft mod about leveling up your skills with experience points.",
+  "authors": [
+    "Gvoper"
+  ],
+  "contact": {
+    "homepage": "https://boosty.to/gvoper"
+  },
+  "license": "GPL-3.0-only",
+  "icon": "assets/gokis/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "gvoper.gokis.fabric.GokiFabric"
+    ],
+    "client": [
+      "gvoper.gokis.fabric.GokiFabricClient"
+    ]
+  },
+  "mixins": [
+    "gokis.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "architectury": "*",
+    "fabric-api": "*"
+  }
+}

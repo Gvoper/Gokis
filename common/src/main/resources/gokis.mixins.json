@@ -1,0 +1,20 @@
+{
+  "required": true,
+  "package": "gvoper.gokis.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "minVersion": "0.8",
+  "mixins": [
+    "AbstractFurnaceMixin",
+    "FoodDataMixin",
+    "LivingEntityAirMixin",
+    "LivingEntityDamageMixin",
+    "LivingEntityJumpMixin",
+    "LivingEntityMixin",
+    "LootTableMixin",
+    "PlayerExperienceMixin",
+    "PlayerHungerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
