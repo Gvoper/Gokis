@@ -91,6 +91,7 @@ public final class SkillHelper {
         int[] result = calcOperation(skill, level, getTotalXp(player), upgrade, fast);
 
         info.setLevel(skill, level + result[0]);
+        GokiData.markDirty(player);
         SkillHooks.bypassExperienceBoost = true;
         try {
             player.giveExperiencePoints(result[1]);
