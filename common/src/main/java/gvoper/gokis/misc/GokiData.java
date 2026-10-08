@@ -85,6 +85,19 @@ public final class GokiData extends SavedData {
         }
     }
 
+    /**
+     * Marks the skill data as changed so that the next save actually writes it to disk.
+     *
+     * <p>Needed because 26.x only writes SavedData that reports {@code isDirty()} (see
+     * {@code SavedDataStorage#collectDirtyTagsToSave}). Mutating a SkillInfo in place does not mark
+     * anything by itself, so every write path has to call this.
+     */
+    public static void markDirty(Player player) {
+        if (player instanceof ServerPlayer serverPlayer && serverPlayer.level().getServer() != null) {
+            get(serverPlayer.level().getServer()).setDirty();
+        }
+    }
+
     /** Called when the client leaves a world: the synced data is not valid anywhere else. */
     public static void clearClientCache() {
         CLIENT_CACHE.clear();
