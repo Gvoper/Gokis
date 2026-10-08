@@ -4,6 +4,7 @@ import dev.architectury.event.EventResult;
 import dev.architectury.utils.value.DoubleValue;
 import dev.architectury.utils.value.FloatValue;
 import gvoper.gokis.GokiSkills;
+import gvoper.gokis.misc.GokiData;
 import gvoper.gokis.misc.GokiTags;
 import gvoper.gokis.network.GokiNetwork;
 import net.minecraft.ChatFormatting;
@@ -189,6 +190,7 @@ public final class SkillHooks {
         if (entity instanceof ServerPlayer player) {
             SkillInfo info = SkillHelper.getInfoOrNull(player);
             if (info != null && info.onDeath()) {
+                GokiData.markDirty(player);
                 sync(player, info);
             }
         }
