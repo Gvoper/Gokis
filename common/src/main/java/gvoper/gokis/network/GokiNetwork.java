@@ -4,6 +4,7 @@ import dev.architectury.networking.NetworkManager;
 import dev.architectury.utils.Env;
 import dev.architectury.utils.EnvExecutor;
 import gvoper.gokis.GokiSkills;
+import gvoper.gokis.misc.GokiData;
 import gvoper.gokis.network.payloads.*;
 import gvoper.gokis.skill.Skill;
 import gvoper.gokis.skill.SkillHelper;
@@ -78,6 +79,7 @@ public final class GokiNetwork {
             Skill skill = SkillRegistry.getSkill(location);
             if (skill == null) return;
             info.toggle(skill);
+            GokiData.markDirty(serverPlayer);
             SkillHooks.updateAttribute(serverPlayer, info, skill);
             sendSkillInfoSync(serverPlayer, info);
         }
